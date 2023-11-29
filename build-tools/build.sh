@@ -41,7 +41,7 @@ tar_files_and_cleanup() {
 
   # There are files that need to be pulled into a tar archive
   if [[ ! -z $tarFiles ]]; then
-    tar -czvf archive.tar $tarFiles > /dev/null
+    tar --sort=name --mtime=@0 -czvf archive.tar $tarFiles > /dev/null
     rm -rf $tarFiles
   fi
 }
